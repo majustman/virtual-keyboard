@@ -278,4 +278,8 @@ export default [
       },
     ],
   },
+  {
+    class: KeyBoardCssClasses.DEL,
+    value: 'Del',
+  },
 ];

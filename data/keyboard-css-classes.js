@@ -37,6 +37,7 @@ export default {
   BRACKET_LEFT: 'BracketLeft',
   BRACKET_RIGHT: 'BracketRight',
   BACKSLASH: 'Backslash',
+  DEL: 'Delete',
   CAPS_LOCK: 'CapsLock',
   KEY_A: 'KeyA',
   KEY_S: 'KeyS',
