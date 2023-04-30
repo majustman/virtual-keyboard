@@ -233,7 +233,7 @@ export default [
     ],
   },
   {
-    class: KeyBoardCssClasses.DASH,
+    class: KeyBoardCssClasses.MINUS,
     value: [
       {
         class: KeyBoardCssClasses.LOWER_CASE,

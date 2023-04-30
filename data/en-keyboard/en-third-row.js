@@ -220,19 +220,19 @@ export default [
     value: [
       {
         class: KeyBoardCssClasses.LOWER_CASE,
-        value: '&#39;',
+        value: '\'',
       },
       {
         class: KeyBoardCssClasses.UPPER_CASE,
-        value: '&#34;',
+        value: '\"',
       },
       {
         class: KeyBoardCssClasses.CAPS_LOCK_ACTIVE,
-        value: '&#39;',
+        value: '\'',
       },
       {
         class: KeyBoardCssClasses.CAPS_SHIFT,
-        value: '&#34;',
+        value: '\"',
       },
     ],
   },
