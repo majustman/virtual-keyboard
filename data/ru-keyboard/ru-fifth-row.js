@@ -22,10 +22,6 @@ export default [
     value: 'Alt',
   },
   {
-    class: KeyBoardCssClasses.CONTROL_RIGHT,
-    value: 'Ctrl',
-  },
-  {
     class: KeyBoardCssClasses.ARROW_LEFT,
     value: '',
   },
@@ -36,5 +32,9 @@ export default [
   {
     class: KeyBoardCssClasses.ARROW_RIGHT,
     value: '',
+  },
+  {
+    class: KeyBoardCssClasses.CONTROL_RIGHT,
+    value: 'Ctrl',
   },
 ];
