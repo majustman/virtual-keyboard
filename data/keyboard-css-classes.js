@@ -2,6 +2,7 @@ export default {
   KEY_BOARD: 'keyboard',
   KEY: 'key',
   KEY_WRAPPER: 'key__wrapper',
+  KEY_IMG: 'key__img',
   ROW: 'row',
   EN: 'en',
   RU: 'ru',

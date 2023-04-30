@@ -4,6 +4,9 @@ import langs from '../../data/langs.js';
 
 const CssClasses = {
   HIDDEN: 'hidden',
+  ROTATE_90: 'rotate-90',
+  ROTATE_180: 'rotate-180',
+  ROTATE_270: 'rotate-270',
 }
 
 export default function createComponent() {
@@ -42,5 +45,29 @@ function createKey(keyClass, rowNum, index) {
     } else langContainer.textContent = value;
     key.append(langContainer);
   };
+  if ([KeyBoardCssClasses.ARROW_LEFT,
+    KeyBoardCssClasses.ARROW_UP,
+    KeyBoardCssClasses.ARROW_DOWN,
+    KeyBoardCssClasses.ARROW_RIGHT]
+    .includes(keyClass)) addArrow(key, keyClass);
   return key;
+}
+
+function addArrow(key, keyClass) {
+  const keyWrapper = key.querySelector('.key__wrapper');
+  const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
+  img.setAttribute('src', 'assets/svg/arrow.svg');
+  img.setAttribute('alt', 'arrow');
+  keyWrapper.append(img);
+  switch (keyClass) {
+    case KeyBoardCssClasses.ARROW_LEFT:
+      img.classList.add(CssClasses.ROTATE_270);
+      break;
+    case KeyBoardCssClasses.ARROW_DOWN:
+      img.classList.add(CssClasses.ROTATE_180);
+      break;
+    case KeyBoardCssClasses.ARROW_RIGHT:
+      img.classList.add(CssClasses.ROTATE_90);
+      break;
+  }
 }
