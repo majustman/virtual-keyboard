@@ -55,11 +55,9 @@ function createKey(keyClass, rowNum, index) {
 }
 
 function addArrow(key, keyClass) {
-  const keyWrapper = key.querySelector('.key__wrapper');
   const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
   img.setAttribute('src', 'assets/svg/arrow.svg');
   img.setAttribute('alt', 'arrow');
-  keyWrapper.append(img);
   switch (keyClass) {
     case KeyBoardCssClasses.ARROW_LEFT:
       img.classList.add(CssClasses.ROTATE_270);
@@ -70,13 +68,14 @@ function addArrow(key, keyClass) {
     case KeyBoardCssClasses.ARROW_RIGHT:
       img.classList.add(CssClasses.ROTATE_90);
       break;
-  }
+  };
+  key.querySelectorAll('.key__wrapper').forEach(wrapper => wrapper.append(img.cloneNode()));
 }
 
 function addWinKey(key) {
-  const keyWrapper = key.querySelector('.key__wrapper');
   const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
   img.setAttribute('src', 'assets/svg/win.svg');
   img.setAttribute('alt', 'win');
-  keyWrapper.append(img);
+  console.log(key.querySelectorAll('.key__wrapper'));
+  key.querySelectorAll('.key__wrapper').forEach(wrapper => wrapper.append(img.cloneNode()));
 }
