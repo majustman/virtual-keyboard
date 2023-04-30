@@ -7,7 +7,7 @@ export default [
   },
   {
     class: KeyBoardCssClasses.WIN,
-    value: 'WIN',
+    value: '',
   },
   {
     class: KeyBoardCssClasses.ALT_LEFT,

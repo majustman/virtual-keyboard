@@ -50,6 +50,7 @@ function createKey(keyClass, rowNum, index) {
     KeyBoardCssClasses.ARROW_DOWN,
     KeyBoardCssClasses.ARROW_RIGHT]
     .includes(keyClass)) addArrow(key, keyClass);
+  if (keyClass === KeyBoardCssClasses.WIN) addWinKey(key);
   return key;
 }
 
@@ -70,4 +71,12 @@ function addArrow(key, keyClass) {
       img.classList.add(CssClasses.ROTATE_90);
       break;
   }
+}
+
+function addWinKey(key) {
+  const keyWrapper = key.querySelector('.key__wrapper');
+  const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
+  img.setAttribute('src', 'assets/svg/win.svg');
+  img.setAttribute('alt', 'win');
+  keyWrapper.append(img);
 }
