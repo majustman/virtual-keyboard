@@ -1,5 +1,7 @@
 export default {
   KEY_BOARD: 'keyboard',
+  KEY: 'key',
+  KEY_WRAPPER: 'key__wrapper',
   ROW: 'row',
   EN: 'en',
   RU: 'ru',
