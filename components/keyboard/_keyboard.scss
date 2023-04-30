@@ -39,12 +39,26 @@
   &.Tab {
     width: 50px;
   }
-  &.Enter,
-  &.ShiftRight {
+  &.ShiftRight,
+  &.Enter {
     width: 90px;
   }
   &.Space {
     width: 350px;
+  }
+  &.Backspace,
+  &.CapsLock,
+  &.ShiftLeft,
+  &.ShiftRight,
+  &.Tab,
+  &.Enter,
+  &.ControlLeft,
+  &.ControlRight,
+  &.AltLeft,
+  &.AltRight,
+  &.MetaLeft,
+  &.Delete {
+    color: $functional-keys-color;
   }
   &__wrapper {
     width: 100%;

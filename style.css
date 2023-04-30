@@ -41,11 +41,14 @@
 .key.Tab {
   width: 50px;
 }
-.key.Enter, .key.ShiftRight {
+.key.ShiftRight, .key.Enter {
   width: 90px;
 }
 .key.Space {
   width: 350px;
+}
+.key.Backspace, .key.CapsLock, .key.ShiftLeft, .key.ShiftRight, .key.Tab, .key.Enter, .key.ControlLeft, .key.ControlRight, .key.AltLeft, .key.AltRight, .key.MetaLeft, .key.Delete {
+  color: #f1ebe7;
 }
 .key__wrapper {
   width: 100%;
