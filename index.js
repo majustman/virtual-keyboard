@@ -1,4 +1,4 @@
-import * as textArea from './components/text-area/text-area.js';
+import createTextArea from './components/text-area/text-area.js';
 import * as KeyBoard from './components/keyboard/keyboard.js';
 import createElement from './extensions/create-element.js';
 
@@ -9,7 +9,7 @@ header.append(heading);
 document.body.append(header);
 
 const main = createElement('main', 'main');
-main.append(textArea.createComponent());
+main.append(createTextArea());
 main.append(KeyBoard.createComponent());
 const info = createElement('div', 'info');
 const os = createElement('p', 'os');
@@ -21,6 +21,6 @@ info.append(lang);
 main.append(info);
 document.body.append(main);
 
-document.addEventListener('keydown', KeyBoard.KeyDownHandler);
-document.addEventListener('keyup', KeyBoard.KeyUpHandler);
+document.addEventListener('keydown', (event) => { KeyBoard.KeyDownHandler(event); });
+document.addEventListener('keyup', (event) => { KeyBoard.KeyUpHandler(event); });
 document.addEventListener('mouseup', KeyBoard.MouseUpHandler);
