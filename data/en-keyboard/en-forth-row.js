@@ -161,7 +161,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.UPPER_CASE,
-        value: '&#8249;',
+        value: '<',
       },
       {
         class: KeyBoardCssClasses.CAPS_LOCK_ACTIVE,
@@ -169,7 +169,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.CAPS_SHIFT,
-        value: '&#8249;',
+        value: '<',
       },
     ],
   },
@@ -182,7 +182,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.UPPER_CASE,
-        value: '&#8250;',
+        value: '>',
       },
       {
         class: KeyBoardCssClasses.CAPS_LOCK_ACTIVE,
@@ -190,7 +190,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.CAPS_SHIFT,
-        value: '&#8250;',
+        value: '>',
       },
     ],
   },

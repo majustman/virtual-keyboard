@@ -52,7 +52,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.UPPER_CASE,
-        value: '&#34;',
+        value: '"',
       },
       {
         class: KeyBoardCssClasses.CAPS_LOCK_ACTIVE,
@@ -60,7 +60,7 @@ export default [
       },
       {
         class: KeyBoardCssClasses.CAPS_SHIFT,
-        value: '&#34;',
+        value: '"',
       },
     ],
   },
