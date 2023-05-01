@@ -1,6 +1,18 @@
 @import "./components/text-area/text-area";
 @import "./components/keyboard/keyboard";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading,
+.info {
+  text-align: center;
+}
+
 .main {
   width: fit-content;
+  margin: 0 auto;
 }
