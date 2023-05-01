@@ -28,11 +28,29 @@ export function KeyDownHandler() {
   highlight(event);
   if (event.altKey && event.shiftKey) changeLang();
   if (event.code === KeyBoardCssClasses.CAPS_LOCK) changeCase();
+  if (event.code === KeyBoardCssClasses.SHIFT_LEFT || event.code === KeyBoardCssClasses.SHIFT_RIGHT) showAltCase();
 }
 
 export function KeyUpHandler() {
   const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
   if (event.code !== KeyBoardCssClasses.CAPS_LOCK) unlightKey(keyBoard.querySelector(`.${event.code}`));
+  if (event.code === KeyBoardCssClasses.SHIFT_LEFT || event.code === KeyBoardCssClasses.SHIFT_RIGHT) hideAltCase();
+}
+
+function showAltCase() {
+  const capsLock = document.querySelector(`.${KeyBoardCssClasses.CAPS_LOCK}`);
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.add(CssClasses.HIDDEN));
+  if (!capsLock.classList.contains(CssClasses.KEY_LIGHTENED)) crntCase = KeyBoardCssClasses.UPPER_CASE
+  else crntCase = KeyBoardCssClasses.CAPS_SHIFT;
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.remove(CssClasses.HIDDEN));
+}
+
+function hideAltCase() {
+  const capsLock = document.querySelector(`.${KeyBoardCssClasses.CAPS_LOCK}`);
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.add(CssClasses.HIDDEN));
+  if (!capsLock.classList.contains(CssClasses.KEY_LIGHTENED)) crntCase = KeyBoardCssClasses.LOWER_CASE
+  else crntCase = KeyBoardCssClasses.CAPS_LOCK_ACTIVE;
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.remove(CssClasses.HIDDEN));
 }
 
 function highlight(event) {
