@@ -1,6 +1,6 @@
 import KeyBoardCssClasses from './keyboard-css-classes.js';
-import enKeyBoard from '../../data/en-keyboard/en-keyboard.js';
-import ruKeyBoard from '../../data/ru-keyboard/ru-keyboard.js';
+import enKeyBoard from './en-keyboard/en-keyboard.js';
+import ruKeyBoard from './ru-keyboard/ru-keyboard.js';
 
 export default [
   {

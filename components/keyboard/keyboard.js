@@ -7,7 +7,7 @@ const CssClasses = {
   ROTATE_90: 'rotate-90',
   ROTATE_180: 'rotate-180',
   ROTATE_270: 'rotate-270',
-}
+};
 
 export default function createComponent() {
   const keyBoard = createElement('div', KeyBoardCssClasses.KEY_BOARD);
@@ -30,11 +30,11 @@ function createRow(rowNum) {
 function createKey(keyClass, rowNum, index) {
   const key = createElement('div', KeyBoardCssClasses.KEY);
   key.classList.add(keyClass);
-  for (let lang of langs) {
+  langs.forEach(lang => {
     const langContainer = createElement('div', lang.class);
     langContainer.classList.add(KeyBoardCssClasses.KEY_WRAPPER);
     if (lang.class !== KeyBoardCssClasses.EN) langContainer.classList.add(CssClasses.HIDDEN);
-    const value = lang.keyBoard[rowNum][index].value;
+    const {value} = lang.keyBoard[rowNum][index];
     if (Array.isArray(value)) {
       value.forEach(el => {
         const caseCont = createElement('div', el.class);
@@ -44,7 +44,7 @@ function createKey(keyClass, rowNum, index) {
       });
     } else langContainer.textContent = value;
     key.append(langContainer);
-  };
+  });
   if ([KeyBoardCssClasses.ARROW_LEFT,
     KeyBoardCssClasses.ARROW_UP,
     KeyBoardCssClasses.ARROW_DOWN,
@@ -76,6 +76,5 @@ function addWinKey(key) {
   const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
   img.setAttribute('src', 'assets/svg/win.svg');
   img.setAttribute('alt', 'win');
-  console.log(key.querySelectorAll('.key__wrapper'));
   key.querySelectorAll('.key__wrapper').forEach(wrapper => wrapper.append(img.cloneNode()));
 }
