@@ -12,6 +12,7 @@ const CssClasses = {
 
 let crntLang = KeyBoardCssClasses.EN;
 let nextLang = KeyBoardCssClasses.RU;
+let crntCase = KeyBoardCssClasses.LOWER_CASE;
 
 export function createComponent() {
   const keyBoard = createElement('div', KeyBoardCssClasses.KEY_BOARD);
@@ -24,14 +25,24 @@ export function createComponent() {
 
 export function KeyDownHandler() {
   event.preventDefault();
-  const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
-  lightKey(keyBoard.querySelector(`.${event.code}`));
+  highlight(event);
   if (event.altKey && event.shiftKey) changeLang();
+  if (event.code === KeyBoardCssClasses.CAPS_LOCK) changeCase();
 }
 
 export function KeyUpHandler() {
   const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
-  unlightKey(keyBoard.querySelector(`.${event.code}`));
+  if (event.code !== KeyBoardCssClasses.CAPS_LOCK) unlightKey(keyBoard.querySelector(`.${event.code}`));
+}
+
+function highlight(event) {
+  const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
+  const capsLock = keyBoard.querySelector(`.${KeyBoardCssClasses.CAPS_LOCK}`);
+  const key = keyBoard.querySelector(`.${event.code}`);
+  if (event.code === KeyBoardCssClasses.CAPS_LOCK
+    && capsLock.classList.contains(CssClasses.KEY_LIGHTENED)) {
+      unlightKey(key);
+  } else lightKey(key);
 }
 
 function lightKey(key) {
@@ -53,6 +64,24 @@ function swapLangs() {
   const tmp = crntLang;
   crntLang = nextLang;
   nextLang = tmp;
+}
+
+function changeCase() {
+  const capsLock = document.querySelector(`.${KeyBoardCssClasses.CAPS_LOCK}`);
+  if (capsLock.classList.contains(CssClasses.KEY_LIGHTENED)) capitalize()
+  else decapitilize();
+}
+
+function capitalize() {
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.add(CssClasses.HIDDEN));
+  document.querySelectorAll(`.${KeyBoardCssClasses.CAPS_LOCK_ACTIVE}`).forEach(item => item.classList.remove(CssClasses.HIDDEN));
+  crntCase = KeyBoardCssClasses.CAPS_LOCK_ACTIVE;
+}
+
+function decapitilize() {
+  document.querySelectorAll(`.${crntCase}`).forEach(item => item.classList.add(CssClasses.HIDDEN));
+  document.querySelectorAll(`.${KeyBoardCssClasses.LOWER_CASE}`).forEach(item => item.classList.remove(CssClasses.HIDDEN));
+  crntCase = KeyBoardCssClasses.LOWER_CASE;
 }
 
 function createRow(rowNum) {

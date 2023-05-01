@@ -50,40 +50,41 @@
   color: #b9b4b1;
   transition: all 0.2s;
 }
-.key.Backspace, .key.CapsLock, .key.ShiftLeft {
-  width: 100px;
-}
-.key.Backspace .any-case, .key.CapsLock .any-case, .key.ShiftLeft .any-case {
-  width: 100px;
-}
-.key.Tab {
-  width: 50px;
-}
-.key.Tab .any-case {
-  width: 50px;
-}
-.key.ShiftRight, .key.Enter {
-  width: 90px;
-}
-.key.ShiftRight .any-case, .key.Enter .any-case {
-  width: 90px;
-}
-.key.Space {
-  width: 350px;
-}
 .key.Backspace, .key.CapsLock, .key.ShiftLeft, .key.ShiftRight, .key.Tab, .key.Enter, .key.ControlLeft, .key.ControlRight, .key.AltLeft, .key.AltRight, .key.MetaLeft, .key.Delete {
   color: #f1ebe7;
 }
 .key__wrapper {
+  display: flex;
   width: 100%;
   height: 100%;
   text-align: center;
   line-height: 40px;
 }
 .key__wrapper > * {
-  width: 40px;
+  flex-basis: 40px;
+  flex-shrink: 0;
   height: 40px;
-  position: relative;
+}
+.key.Backspace, .key.CapsLock, .key.ShiftLeft {
+  width: 100px;
+}
+.key.Backspace .any-case, .key.CapsLock .any-case, .key.ShiftLeft .any-case {
+  flex-basis: 100px;
+}
+.key.Tab {
+  width: 50px;
+}
+.key.Tab .any-case {
+  flex-basis: 50px;
+}
+.key.ShiftRight, .key.Enter {
+  width: 90px;
+}
+.key.ShiftRight .any-case, .key.Enter .any-case {
+  flex-basis: 90px;
+}
+.key.Space {
+  width: 350px;
 }
 .key_lightened {
   background-color: #72c054;

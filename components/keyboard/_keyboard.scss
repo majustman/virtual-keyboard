@@ -48,30 +48,6 @@
   transition: all .2s;
   &.Backspace,
   &.CapsLock,
-  &.ShiftLeft {
-    width: 100px;
-    & .any-case {
-      width: 100px;
-    }
-  }
-  &.Tab {
-    width: 50px;
-    & .any-case {
-      width: 50px;
-    }
-  }
-  &.ShiftRight,
-  &.Enter {
-    width: 90px;
-    & .any-case {
-      width: 90px;
-    }
-  }
-  &.Space {
-    width: 350px;
-  }
-  &.Backspace,
-  &.CapsLock,
   &.ShiftLeft,
   &.ShiftRight,
   &.Tab,
@@ -85,15 +61,40 @@
     color: $functional-keys-color;
   }
   &__wrapper {
+    display: flex;
     width: 100%;
     height: 100%;
     text-align: center;
     line-height: 40px;
     & > * {
-      width: 40px;
+      flex-basis: 40px;
+      flex-shrink: 0;
       height: 40px;
-      position: relative;
     }
+  }
+  &.Backspace,
+  &.CapsLock,
+  &.ShiftLeft {
+    width: 100px;
+    & .any-case {
+      flex-basis: 100px;
+    }
+  }
+  &.Tab {
+    width: 50px;
+    & .any-case {
+      flex-basis: 50px;
+    }
+  }
+  &.ShiftRight,
+  &.Enter {
+    width: 90px;
+    & .any-case {
+      flex-basis: 90px;
+    }
+  }
+  &.Space {
+    width: 350px;
   }
   &_lightened {
     background-color: $lightened-keys-background-color;
