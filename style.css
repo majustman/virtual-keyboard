@@ -50,6 +50,13 @@
   color: #b9b4b1;
   transition: all 0.2s;
 }
+.key_lightened {
+  background-color: #72c054;
+  border-radius: 30%;
+}
+.key:hover {
+  cursor: pointer;
+}
 .key.Backspace, .key.CapsLock, .key.ShiftLeft, .key.ShiftRight, .key.Tab, .key.Enter, .key.ControlLeft, .key.ControlRight, .key.AltLeft, .key.AltRight, .key.MetaLeft, .key.Delete {
   color: #f1ebe7;
 }
@@ -85,10 +92,6 @@
 }
 .key.Space {
   width: 350px;
-}
-.key_lightened {
-  background-color: #72c054;
-  border-radius: 30%;
 }
 
 .main {

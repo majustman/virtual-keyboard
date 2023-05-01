@@ -9,3 +9,5 @@ document.body.append(main);
 
 document.addEventListener('keydown', KeyBoard.KeyDownHandler);
 document.addEventListener('keyup', KeyBoard.KeyUpHandler);
+document.addEventListener('mouseup', KeyBoard.MouseUpHandler);
+document.addEventListener('mousedown', () => {event.preventDefault()});

@@ -46,6 +46,13 @@
   border-radius: 5px;
   color: $general-keys-color;
   transition: all .2s;
+  &_lightened {
+    background-color: $lightened-keys-background-color;
+    border-radius: 30%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
   &.Backspace,
   &.CapsLock,
   &.ShiftLeft,
@@ -95,9 +102,5 @@
   }
   &.Space {
     width: 350px;
-  }
-  &_lightened {
-    background-color: $lightened-keys-background-color;
-    border-radius: 30%;
   }
 }
