@@ -6,6 +6,7 @@
 .hidden {
   visibility: hidden;
   flex-grow: 0;
+  order: 2;
 }
 
 .rotate-90 {
@@ -41,6 +42,7 @@
 }
 
 .key {
+  display: flex;
   width: 40px;
   height: 40px;
   background-color: #353331;
@@ -51,10 +53,19 @@
 .key.Backspace, .key.CapsLock, .key.ShiftLeft {
   width: 100px;
 }
+.key.Backspace .any-case, .key.CapsLock .any-case, .key.ShiftLeft .any-case {
+  width: 100px;
+}
 .key.Tab {
   width: 50px;
 }
+.key.Tab .any-case {
+  width: 50px;
+}
 .key.ShiftRight, .key.Enter {
+  width: 90px;
+}
+.key.ShiftRight .any-case, .key.Enter .any-case {
   width: 90px;
 }
 .key.Space {

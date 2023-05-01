@@ -10,6 +10,7 @@ export default {
   UPPER_CASE: 'upper-case',
   CAPS_LOCK_ACTIVE: 'caps-lock-active',
   CAPS_SHIFT: 'caps-shift',
+  ANY_CASE: 'any-case',
   BACKQUOTE: 'Backquote',
   DIGIT_1: 'Digit1',
   DIGIT_2: 'Digit2',

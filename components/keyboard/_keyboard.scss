@@ -3,6 +3,7 @@
 .hidden {
   visibility: hidden;
   flex-grow: 0;
+  order: 2;
 }
 
 .rotate-90 {
@@ -38,6 +39,7 @@
 }
 
 .key {
+  display: flex;
   width: 40px;
   height: 40px;
   background-color: $general-keys-background-color;
@@ -48,13 +50,22 @@
   &.CapsLock,
   &.ShiftLeft {
     width: 100px;
+    & .any-case {
+      width: 100px;
+    }
   }
   &.Tab {
     width: 50px;
+    & .any-case {
+      width: 50px;
+    }
   }
   &.ShiftRight,
   &.Enter {
     width: 90px;
+    & .any-case {
+      width: 90px;
+    }
   }
   &.Space {
     width: 350px;

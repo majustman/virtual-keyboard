@@ -79,7 +79,11 @@ function createKey(keyClass, rowNum, index) {
         if (el.class !== KeyBoardCssClasses.LOWER_CASE) caseCont.classList.add(CssClasses.HIDDEN);
         langContainer.append(caseCont);
       });
-    } else langContainer.textContent = value;
+    } else {
+      const div = createElement('div', KeyBoardCssClasses.ANY_CASE);
+      div.textContent = value;
+      langContainer.append(div);
+    };
     key.append(langContainer);
   });
   if ([KeyBoardCssClasses.ARROW_LEFT,
@@ -106,12 +110,12 @@ function addArrow(key, keyClass) {
       img.classList.add(CssClasses.ROTATE_90);
       break;
   };
-  key.querySelectorAll('.key__wrapper').forEach(wrapper => wrapper.append(img.cloneNode()));
+  key.querySelectorAll(`.${KeyBoardCssClasses.ANY_CASE}`).forEach(wrapper => wrapper.append(img.cloneNode()));
 }
 
 function addWinKey(key) {
   const img = createElement('img', KeyBoardCssClasses.KEY_IMG);
   img.setAttribute('src', 'assets/svg/win.svg');
   img.setAttribute('alt', 'win');
-  key.querySelectorAll('.key__wrapper').forEach(wrapper => wrapper.append(img.cloneNode()));
+  key.querySelectorAll(`.${KeyBoardCssClasses.ANY_CASE}`).forEach(wrapper => wrapper.append(img.cloneNode()));
 }
