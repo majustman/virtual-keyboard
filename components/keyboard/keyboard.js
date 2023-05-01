@@ -8,6 +8,7 @@ const CssClasses = {
   ROTATE_180: 'rotate-180',
   ROTATE_270: 'rotate-270',
   KEY_LIGHTENED: 'key_lightened',
+  TEXT_AREA: 'text-area',
 };
 
 let crntLang = localStorage.getItem('lang') || KeyBoardCssClasses.EN;
@@ -23,6 +24,7 @@ export function createComponent() {
     const row = createRow(i);
     keyBoard.append(row);
   };
+  keyBoard.addEventListener('mousedown', () => {event.preventDefault()});
   return keyBoard;
 }
 
@@ -58,9 +60,60 @@ function changeCapsLockState() {
 }
 
 function keyDownAction(event) {
-  if (event.altKey && event.shiftKey) changeLang();
-  if (event.code === KeyBoardCssClasses.CAPS_LOCK) changeCase();
-  if (event.code === KeyBoardCssClasses.SHIFT_LEFT || event.code === KeyBoardCssClasses.SHIFT_RIGHT) showAltCase();
+  if (event.altKey && event.shiftKey) changeLang()
+  else if (event.code === KeyBoardCssClasses.CAPS_LOCK) changeCase()
+  else if (event.code === KeyBoardCssClasses.SHIFT_LEFT || event.code === KeyBoardCssClasses.SHIFT_RIGHT) showAltCase()
+  else if (Object.values(KeyBoardCssClasses).includes(event.code)) processToTextArea(event.code);
+}
+
+function processToTextArea(keyCode) {
+  switch (keyCode) {
+    case KeyBoardCssClasses.BACKSPACE:
+      break;
+    case KeyBoardCssClasses.TAB:
+      break;
+    case KeyBoardCssClasses.DEL:
+      break;
+    case KeyBoardCssClasses.CAPS_LOCK:
+      break;
+    case KeyBoardCssClasses.ENTER:
+      break;
+    case KeyBoardCssClasses.SHIFT_LEFT:
+      break;
+    case KeyBoardCssClasses.SHIFT_RIGHT:
+      break;
+    case KeyBoardCssClasses.CONTROL_LEFT:
+      break;
+    case KeyBoardCssClasses.WIN:
+      break;
+    case KeyBoardCssClasses.ALT_LEFT:
+      break;
+    case KeyBoardCssClasses.SPACE:
+      break;
+    case KeyBoardCssClasses.ALT_RIGHT:
+      break;
+    case KeyBoardCssClasses.CONTROL_RIGHT:
+      break;
+    case KeyBoardCssClasses.ARROW_UP:
+      break;
+    case KeyBoardCssClasses.ARROW_LEFT:
+      break;
+    case KeyBoardCssClasses.ARROW_RIGHT:
+      break;
+    case KeyBoardCssClasses.ARROW_DOWN:
+      break;
+    default:
+      printOnTextArea(keyCode);
+      break;
+  };
+}
+
+function printOnTextArea(keyCode) {
+  const textArea = document.querySelector(`.${CssClasses.TEXT_AREA}`);
+  const keyText = Array.from(Array.from(document.querySelector(`.${keyCode}`).children)
+    .filter(item => !item.classList.contains(CssClasses.HIDDEN))[0].children)
+    .filter(item => !item.classList.contains(CssClasses.HIDDEN))[0].textContent;
+  textArea.textContent += keyText;
 }
 
 function showAltCase() {
@@ -195,8 +248,9 @@ function mouseUpShiftHandler() {
 
 function mouseDownAction(event) {
   if (event.currentTarget.classList.contains(KeyBoardCssClasses.SHIFT_LEFT)
-    || event.currentTarget.classList.contains(KeyBoardCssClasses.SHIFT_RIGHT)) showAltCase();
-  if (event.currentTarget.classList.contains(KeyBoardCssClasses.CAPS_LOCK)) changeCase();
+    || event.currentTarget.classList.contains(KeyBoardCssClasses.SHIFT_RIGHT)) showAltCase()
+  else if (event.currentTarget.classList.contains(KeyBoardCssClasses.CAPS_LOCK)) changeCase()
+  else processToTextArea(Array.from(event.currentTarget.classList).pop());
 }
 
 function addArrow(key, keyClass) {
