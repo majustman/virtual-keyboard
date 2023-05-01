@@ -10,6 +10,9 @@ const CssClasses = {
   KEY_LIGHTENED: 'key_lightened',
 };
 
+let crntLang = KeyBoardCssClasses.EN;
+let nextLang = KeyBoardCssClasses.RU;
+
 export function createComponent() {
   const keyBoard = createElement('div', KeyBoardCssClasses.KEY_BOARD);
   for (let i = 0; i < 5; i++) {
@@ -23,6 +26,7 @@ export function KeyDownHandler() {
   event.preventDefault();
   const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
   lightKey(keyBoard.querySelector(`.${event.code}`));
+  if (event.altKey && event.shiftKey) changeLang();
 }
 
 export function KeyUpHandler() {
@@ -36,6 +40,19 @@ function lightKey(key) {
 
 function unlightKey(key) {
   if (key) key.classList.remove(CssClasses.KEY_LIGHTENED);
+}
+
+function changeLang() {
+  const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
+  keyBoard.querySelectorAll(`.${crntLang}`).forEach(el => el.classList.add(CssClasses.HIDDEN));
+  keyBoard.querySelectorAll(`.${nextLang}`).forEach(el => el.classList.remove(CssClasses.HIDDEN));
+  swapLangs();
+}
+
+function swapLangs() {
+  const tmp = crntLang;
+  crntLang = nextLang;
+  nextLang = tmp;
 }
 
 function createRow(rowNum) {
