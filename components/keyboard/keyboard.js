@@ -10,10 +10,12 @@ const CssClasses = {
   KEY_LIGHTENED: 'key_lightened',
 };
 
-let crntLang = KeyBoardCssClasses.EN;
-let nextLang = KeyBoardCssClasses.RU;
+let crntLang = localStorage.getItem('lang') || KeyBoardCssClasses.EN;
+let nextLang = crntLang === KeyBoardCssClasses.EN ? KeyBoardCssClasses.RU : KeyBoardCssClasses.EN;
 let crntCase = KeyBoardCssClasses.LOWER_CASE;
 let capsLockActive = false;
+
+window.addEventListener('beforeunload', setLocalStorage);
 
 export function createComponent() {
   const keyBoard = createElement('div', KeyBoardCssClasses.KEY_BOARD);
@@ -40,6 +42,10 @@ export function KeyUpHandler() {
 export function MouseUpHandler() {
   const highlightedKeys = Array.from(document.querySelectorAll(`.${CssClasses.KEY_LIGHTENED}`)).filter(item => !item.classList.contains(KeyBoardCssClasses.CAPS_LOCK));
   highlightedKeys.forEach(item => item.classList.remove(CssClasses.KEY_LIGHTENED));
+}
+
+function setLocalStorage() {
+  localStorage.setItem('lang', crntLang);
 }
 
 function changeCapsLockState() {
@@ -145,7 +151,7 @@ function createKey(keyClass, rowNum, index) {
   langs.forEach(lang => {
     const langContainer = createElement('div', lang.class);
     langContainer.classList.add(KeyBoardCssClasses.KEY_WRAPPER);
-    if (lang.class !== KeyBoardCssClasses.EN) langContainer.classList.add(CssClasses.HIDDEN);
+    if (lang.class !== crntLang) langContainer.classList.add(CssClasses.HIDDEN);
     const {value} = lang.keyBoard[rowNum][index];
     if (Array.isArray(value)) {
       value.forEach(el => {
