@@ -7,15 +7,35 @@ const CssClasses = {
   ROTATE_90: 'rotate-90',
   ROTATE_180: 'rotate-180',
   ROTATE_270: 'rotate-270',
+  KEY_LIGHTENED: 'key_lightened',
 };
 
-export default function createComponent() {
+export function createComponent() {
   const keyBoard = createElement('div', KeyBoardCssClasses.KEY_BOARD);
   for (let i = 0; i < 5; i++) {
     const row = createRow(i);
     keyBoard.append(row);
   };
   return keyBoard;
+}
+
+export function KeyDownHandler() {
+  event.preventDefault();
+  const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
+  lightKey(keyBoard.querySelector(`.${event.code}`));
+}
+
+export function KeyUpHandler() {
+  const keyBoard = document.querySelector(`.${KeyBoardCssClasses.KEY_BOARD}`);
+  unlightKey(keyBoard.querySelector(`.${event.code}`));
+}
+
+function lightKey(key) {
+  if (key) key.classList.add(CssClasses.KEY_LIGHTENED);
+}
+
+function unlightKey(key) {
+  if (key) key.classList.remove(CssClasses.KEY_LIGHTENED);
 }
 
 function createRow(rowNum) {

@@ -43,6 +43,7 @@
   background-color: $general-keys-background-color;
   border-radius: 5px;
   color: $general-keys-color;
+  transition: all .2s;
   &.Backspace,
   &.CapsLock,
   &.ShiftLeft {
@@ -82,5 +83,9 @@
       height: 40px;
       position: relative;
     }
+  }
+  &_lightened {
+    background-color: $lightened-keys-background-color;
+    border-radius: 30%;
   }
 }

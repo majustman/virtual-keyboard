@@ -46,6 +46,7 @@
   background-color: #353331;
   border-radius: 5px;
   color: #b9b4b1;
+  transition: all 0.2s;
 }
 .key.Backspace, .key.CapsLock, .key.ShiftLeft {
   width: 100px;
@@ -72,6 +73,10 @@
   width: 40px;
   height: 40px;
   position: relative;
+}
+.key_lightened {
+  background-color: #72c054;
+  border-radius: 30%;
 }
 
 .main {
